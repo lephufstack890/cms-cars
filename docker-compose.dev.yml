@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  app:
+    platform: linux/arm64
+    image: cabx-website-register/cabx-website-register:v1
+    build:
+      context: .
+      dockerfile: dockerfile.dev
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    ports:
+      - '3031:3031'
+    restart: unless-stopped
+    command: /app/entrypoint.sh
+    environment:
+      NODE_ENV: development

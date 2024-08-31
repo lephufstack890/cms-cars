@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+    cabx-website-register-service:
+        image: cabx-website-register
+        container_name: cabx-website-register
+        ports:
+            - "8004:80"
+        restart: always
+        networks:
+            - default
